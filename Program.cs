@@ -1,7 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using TestePontual.Context;
+using TestePontual.Repositories;
+using TestePontual.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//injeção dependencia string connection
+builder.Services.AddDbContext<ClienteContext>(options => 
+options.UseSqlite(builder.Configuration.GetConnectionString("ConexaoSqlite")));
+//registrando dependencia do repository de cliente
+builder.Services.AddTransient<IClienteRepository, ClienteRepositories>();
 
 var app = builder.Build();
 

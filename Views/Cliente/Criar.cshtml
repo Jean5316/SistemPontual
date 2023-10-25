@@ -1,0 +1,67 @@
+@model TestePontual.Models.Cliente;
+@{
+  ViewData["Title"] = "Cadastrar Cliente";
+}
+
+
+<div class="container">
+  <form asp-action="Criar" autocomplete="on" target="_blank">
+
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Nome" name="Nome">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" id="telefone" placeholder="(67)0000-0000" name="Contato" >
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <input type="email" class="form-control" placeholder="E-mail" name="Email">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="CEP"name="Cep">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Rua..." name="Rua">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Numero" name="Numero">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Complemento" name="Complemento">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Bairro" name="Bairro">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Cidade" name="Cidade">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Estado" name="Estado">
+      </div>
+    </div>
+
+    
+    <div class="form-row">
+      <br>
+    </div>
+    
+    <button type="submit" onclick="Cadastro()" class="btn btn-primary">Criar</button>
+  
+  </form>
+  <br>
+  <a asp-action="index"><button type=" button" class="btn btn-primary">Voltar</button></a>
+</div>
+
+<script src="site.js"></script>

@@ -1,0 +1,56 @@
+@model IEnumerable<TestePontual.Models.Cliente>// faz looping para puxar dados do banco
+
+@* @{
+    Usada para trocar o template padrao da pagina
+    Layout = null;
+}     *@
+
+<a asp-action="Criar"><button class="btn btn-primary">Cadastrar Cliente</button></a>
+<div class="filter">
+    <form asp-action="Index">
+        <input type="search" placeholder="Filtrar Cliente" name="pesquisa">
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+    </form>
+    <br>
+</div>
+<hr>
+<h1 class="Nome">Clientes</h1>
+
+<h2>@ViewBag.Total:@ViewBag.TotalClientes</h2>
+<h2>@TempData["Nome"]</h2>
+
+
+
+
+<div class="container">
+    <div class="table">
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Contato</th>
+                    <th scope="col">Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(model => i.Nome)</td>
+                        <td>@Html.DisplayFor(model => i.Contato)</td>
+                        <td>@Html.DisplayFor(model => i.Email)</td>
+                        <td>
+                            <a asp-action="Editar" asp-route-id="@i.Id"><button class="btn btn-primary">Editar</button></a>
+                            <a asp-action="Detalhes" asp-route-id="@i.Id"><button
+                                    class="btn btn-primary">Detalhes</button></a>
+                            <a asp-action="Delete" asp-route-id="@i.Id" onclick="Delete()"><button
+                                    class="btn btn-primary">Deletar</button></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @ViewData["Data"]
+    </div>
+</div>

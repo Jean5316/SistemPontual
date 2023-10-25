@@ -1,15 +1,36 @@
+*{
+  font-size: .525rem;
+  font-family: 'Inconsolata', monospace;
+  
+}
 html {
   font-size: 14px;
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 320px) {
   html {
-    font-size: 16px;
+    font-size: 1rem;
+  }
+  .filter input{
+    margin-left: 20rem;
+  }
+
+  .filter button{
+    margin-left: 1rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  html {
+    font-size: 1.7rem;
+  }
+  .filter input{
+    margin-left: 10px;
   }
 }
 
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.1rem rgb(250, 248, 248), 0 0 0 0.25rem #258cfb;
 }
 
 html {
@@ -19,4 +40,21 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: rgb(115, 8, 255);
+}
+
+/* .filter input{
+  margin-left: 70rem;
+  height: 2.5rem;
+  width: 15rem;
+  
+  
+} */
+
+h1{
+  color: white;
+}
+
+label{
+  color: white;
 }
