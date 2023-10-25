@@ -7,6 +7,7 @@ using TestePontual.Models;
 using TestePontual.Context;
 using TestePontual.Repositories;
 using TestePontual.Repository;
+using TestePontual.ViewModels;
 
 namespace TestePontual.Controllers
 {
@@ -22,25 +23,32 @@ namespace TestePontual.Controllers
         //Pagina index 
         public IActionResult Index(string pesquisa)
         {
-            System.Globalization.CultureInfo cultureinfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+            //System.Globalization.CultureInfo cultureinfo = System.Threading.Thread.CurrentThread.CurrentCulture;
 
-            var clientes = from m in _context.Clientes select m;//Consulta link no DB
+            //var clientes = from m in _context.Clientes select m;//Consulta link no DB
 
-            if (!string.IsNullOrEmpty(pesquisa))//Campo de pesquisa 
-            {
-                clientes = _context.Clientes.Where(x => x.Nome.Contains(cultureinfo.TextInfo.ToTitleCase(pesquisa)));
-            }
+            // if (!string.IsNullOrEmpty(pesquisa))//Campo de pesquisa 
+            // {
+            //     ClientesListViewModel = _context.Clientes.Where(x => x.Nome.Contains(cultureinfo.TextInfo.ToTitleCase(pesquisa)));
+            // }
+            
             //amazenas dados por chave e valor tipada
-            ViewData["Title"] = "Pagina Inicial";
-            ViewData["Data"] = DateTime.Now;
+            // ViewData["Title"] = "Pagina Inicial";
+            // ViewData["Data"] = DateTime.Now;
+            
             //armazena dados por chave valor não tipada
-            ViewBag.Total = "Total de Clientes";
-            ViewBag.TotalClientes = clientes.Count();
+            // ViewBag.Total = "Total de Clientes";
+            //ViewBag.TotalClientes = ClientesListViewModel.Count();
+            
             //armazena dados temporarios por chave e valor tipada
             //perde o valor depois que recuperado na view
-            TempData["Nome"] = "Jean";
+            // TempData["Nome"] = "Teste TEMPDATA";
 
-            return View(clientes);
+            var ClientesListViewModel = new ClienteListViewModel();
+            ClientesListViewModel.Clientes = _context.Clientes;
+
+
+            return View(ClientesListViewModel);
 
         }
 
