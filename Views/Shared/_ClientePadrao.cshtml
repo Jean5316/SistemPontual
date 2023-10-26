@@ -1,0 +1,70 @@
+@model Cliente
+<form asp-action="Editar" autocomplete="on">
+
+    <div class="row">
+        <div class="form-group">
+            <label asp-for="Nome" class="control-label"></label>
+            <input type="text" class="form-control" asp-for="Nome" id="3">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label asp-for="Contato" class="control-label"></label>
+            <input type="text" class="form-control" id="telefone" placeholder="(67)0000-0000" asp-for="Contato">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label asp-for="Email" class="control-label"></label>
+            <input type="email" class="form-control" placeholder="E-mail" asp-for="Email">
+        </div>
+        <div class="col">
+            <label asp-for="Cep" class="control-label"></label>
+            <input type="text" class="form-control" placeholder="CEP" id="cep" asp-for="Cep">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label asp-for="Rua" class="control-label"></label>
+            <input type="text" class="form-control" placeholder="Rua..." asp-for="Rua">
+        </div>
+        <div class="col">
+            <label asp-for="Numero" class="control-label"></label>
+            <input type="text" class="form-control" placeholder="Numero" asp-for="Numero">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label asp-for="Complemento" class="control-label"></label>
+            <input type="text" class="form-control" placeholder="Complemento" asp-for="Complemento">
+        </div>
+        <div class="col">
+            <label asp-for="Bairro" class="control-label"></label>
+            <input type="text" class="form-control" placeholder="Bairro" asp-for="Bairro">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label asp-for="Cidade" class="control-label"></label>
+            <input type="text" class="form-control" placeholder="Cidade" asp-for="Cidade">
+        </div>
+        <div class="col">
+            <label asp-for="Estado" class="control-label"></label>
+            <input type="text" class="form-control" placeholder="Estado" asp-for="Estado">
+        </div>
+    </div>
+
+
+    <div class="form-row">
+        <br>
+        <button type="submit" onclick="Edicao()" class="btn btn-primary">Salvar</button>
+        <a asp-action="index"><button type="button" class="btn btn-primary">Voltar</button></a>
+    </div>
+
+
+</form>

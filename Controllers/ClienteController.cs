@@ -9,6 +9,7 @@ using TestePontual.Repositories;
 using TestePontual.Repository;
 using TestePontual.ViewModels;
 
+
 namespace TestePontual.Controllers
 {
     public class ClienteController : Controller
@@ -31,13 +32,13 @@ namespace TestePontual.Controllers
             // {
             //     ClientesListViewModel = _context.Clientes.Where(x => x.Nome.Contains(cultureinfo.TextInfo.ToTitleCase(pesquisa)));
             // }
-            
+
             //amazenas dados por chave e valor tipada
             // ViewData["Title"] = "Pagina Inicial";
             // ViewData["Data"] = DateTime.Now;
-            
-            
-            
+
+
+
             //armazena dados temporarios por chave e valor tipada
             //perde o valor depois que recuperado na view
             // TempData["Nome"] = "Teste TEMPDATA";
@@ -60,69 +61,65 @@ namespace TestePontual.Controllers
             return View();
         }
 
-        // //Grava Dados Criados no Banco de Dados
-        // [HttpPost]
-        // public IActionResult Criar(Cliente cliente)
-        // {
-        //     if(_context.)
-        //     return RedirectToAction(nameof(Index));
-        // }
+        //Grava Dados Criados no Banco de Dados
+        [HttpPost]
+        public IActionResult Criar(Cliente cliente)
+        {
+            _context.CriarCliente(cliente);
+            return RedirectToAction(nameof(Index));
+        }
 
 
-        //     //Deleta Cliente Do Banco de Dados
-        //     [HttpGet]
-        //     public IActionResult Delete(int Id)
-        //     {
+        //Edita Cliente
+        public IActionResult Editar(int Id)
+        {
+            var cliente = _context.GetClientById(Id);
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+            return View(cliente);
+        }
 
-        //         _context.Remove(Cliente);
-        //         _context.SaveChanges();
-        //         return RedirectToAction(nameof(Index));
-        //     }
+        [HttpPost]
+        public IActionResult Editar(Cliente cliente)
+        {
+            var ClienteDB = _context.GetClientById(cliente.Id);
+            if (ClienteDB == null)
+            {
+                return NotFound();
+            }
+            ClienteDB.Nome = cliente.Nome;
+            ClienteDB.Contato = cliente.Contato;
+            ClienteDB.Email = cliente.Email;
+            ClienteDB.Cep = cliente.Cep;
+            ClienteDB.Rua = cliente.Rua;
+            ClienteDB.Numero = cliente.Numero;
+            ClienteDB.Complemento = cliente.Complemento;
+            ClienteDB.Cidade = cliente.Cidade;
+            ClienteDB.Bairro = cliente.Bairro;
+            ClienteDB.Estado = cliente.Estado;
 
-        //     //Edita Cliente
-        //     public IActionResult Editar(int Id)
-        //     {
-        //         var Cliente = _context.Clientes.Find(Id);
-        //         if (Cliente == null)
-        //         {
-        //             return NotFound();
-        //         }
-        //         return View(Cliente);
+            _context.EditarCliente(ClienteDB);
 
-        //     }
+            return RedirectToAction(nameof(Index));
 
-        //     [HttpPost]
-        //     public IActionResult Editar(Cliente cliente)
-        //     {
-        //         var ClienteDB = _context.Clientes.Find(cliente.Id);
-        //         ClienteDB.Nome = cliente.Nome;
-        //         ClienteDB.Contato = cliente.Contato;
-        //         ClienteDB.Email = cliente.Email;
-        //         ClienteDB.Cep = cliente.Cep;
-        //         ClienteDB.Rua = cliente.Rua;
-        //         ClienteDB.Numero = cliente.Numero;
-        //         ClienteDB.Complemento = cliente.Complemento;
-        //         ClienteDB.Cidade = cliente.Cidade;
-        //         ClienteDB.Bairro = cliente.Bairro;
-        //         ClienteDB.Estado = cliente.Estado;
+        }
 
-        //         _context.Clientes.Update(ClienteDB);
-        //         _context.SaveChanges();
+        public IActionResult Detalhes(int id)
+        {
 
-        //         return RedirectToAction(nameof(Index));
+            return View(_context.Detalhes(id));
+        }
 
-        //     }
+        //Deleta Cliente Do Banco de Dados
+        [HttpGet]
+        public IActionResult Delete(int Id)
+        {
+            var cliente = _context.GetClientById(Id);
+            _context.DeletarCliente(cliente);
 
-        //     //Edita Cliente
-        //     public IActionResult Detalhes(int Id)
-        //     {
-        //         var Cliente = _context.Clientes.Find(Id);
-        //         if (Cliente == null)
-        //         {
-        //             return NotFound();
-        //         }
-        //         return View(Cliente);
-
-        //     }
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

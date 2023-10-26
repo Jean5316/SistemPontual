@@ -13,7 +13,22 @@ namespace TestePontual.Repository
 
 
         // // //metodo
-        // Cliente GetClientById(int clienteId);
+        Cliente GetClientById(int clienteId);
+
+        public void CriarCliente(Cliente cliente);
+        
+        public void EditarCliente(Cliente cliente);
+
+        public void DeletarCliente(Cliente cliente);
+
+        Cliente Detalhes(int cliente);
+
+        
+        
+        
+        
+
+
 
 
     }
