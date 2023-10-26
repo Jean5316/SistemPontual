@@ -24,27 +24,22 @@ namespace TestePontual.Controllers
         //Pagina index 
         public IActionResult Index(string pesquisa)
         {
-            //System.Globalization.CultureInfo cultureinfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-
-            //var clientes = from m in _context.Clientes select m;//Consulta link no DB
-
-            // if (!string.IsNullOrEmpty(pesquisa))//Campo de pesquisa 
-            // {
-            //     ClientesListViewModel = _context.Clientes.Where(x => x.Nome.Contains(cultureinfo.TextInfo.ToTitleCase(pesquisa)));
-            // }
 
             //amazenas dados por chave e valor tipada
             // ViewData["Title"] = "Pagina Inicial";
             // ViewData["Data"] = DateTime.Now;
 
-
-
             //armazena dados temporarios por chave e valor tipada
             //perde o valor depois que recuperado na view
             // TempData["Nome"] = "Teste TEMPDATA";
 
+
             var ClientesListViewModel = new ClienteListViewModel();
             ClientesListViewModel.Clientes = _context.Clientes;
+            //ClientesListViewModel.Clientes = _context.Clientes.Where(x => x.Nome.Contains(pesquisa)).ToList();
+
+
+
 
             //armazena dados por chave valor não tipada
             ViewBag.Titulo = "Lista de Clientes";
@@ -65,8 +60,13 @@ namespace TestePontual.Controllers
         [HttpPost]
         public IActionResult Criar(Cliente cliente)
         {
-            _context.CriarCliente(cliente);
-            return RedirectToAction(nameof(Index));
+
+            if (ModelState.IsValid)
+            {
+                _context.CriarCliente(cliente);
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
         }
 
 

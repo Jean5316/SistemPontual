@@ -24,6 +24,8 @@ namespace TestePontual.Repository
         Cliente Detalhes(int cliente);
 
         
+
+        
         
         
         

@@ -16,7 +16,7 @@ namespace TestePontual.Models
         [Required(ErrorMessage = "O nome do cliente é obrigatorio!")]
         [StringLength(100, MinimumLength = 4, ErrorMessage = "O Campo deve conter 4 a 50 Caracteres")]
         public string Nome { get; set; }
-
+      
         [Display(Name = "Numero Telefone")]
         [DisplayFormat(DataFormatString = "(67)98134-2083")]
         [StringLength(11, MinimumLength = 10, ErrorMessage = "O Campo deve ser preenchido com numero de celular ou telefone fixo")]

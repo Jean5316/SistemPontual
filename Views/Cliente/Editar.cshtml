@@ -4,7 +4,14 @@
 }
 
 <div class="container">
-  <partial name="_ClientePadrao"/>
+  <form asp-action="Editar">
+    <partial name="_ClientePadrao" />
+    <div class="form-row">
+      <br>
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a asp-action="index"><button type="button" class="btn btn-primary">Voltar</button></a>
+    </div>
+  </form>
+
 </div>
 
-<script src="site.js"></script>

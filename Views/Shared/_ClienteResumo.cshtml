@@ -1,9 +1,10 @@
 @model Cliente//definindo model
 
+
 <div class="col-sm-4 col-md-4 col-lg-4">
-    <p>Nome: @Model.Nome</p>
-    <p>Contato: @Model.Contato</p>
-    <p>Email: @Model.Email</p>
+    <p>@Html.DisplayNameFor(Model => Model.Nome): @Html.DisplayFor(Model => Model.Nome)</p>
+    <p>@Html.DisplayNameFor(Model => Model.Contato): @Html.DisplayFor(Model => Model.Contato)</p>
+    <p>@Html.DisplayNameFor(Model => Model.Email): @Html.DisplayFor(Model => Model.Email)</p>
 
     <a asp-action="Editar" asp-route-id="@Model.Id"><button>Editar</button></a>
     <a asp-action="Detalhes" asp-route-id="@Model.Id"><button>Detalhes</button></a>

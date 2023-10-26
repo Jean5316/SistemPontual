@@ -10,5 +10,14 @@ namespace TestePontual.ViewModels
     {
         public IEnumerable<Cliente> Clientes { get; set; }
 
+        
+
+        
+
+        
+
+        
+
+        
     }
 }
