@@ -36,9 +36,7 @@ namespace TestePontual.Controllers
             // ViewData["Title"] = "Pagina Inicial";
             // ViewData["Data"] = DateTime.Now;
             
-            //armazena dados por chave valor não tipada
-            // ViewBag.Total = "Total de Clientes";
-            //ViewBag.TotalClientes = ClientesListViewModel.Count();
+            
             
             //armazena dados temporarios por chave e valor tipada
             //perde o valor depois que recuperado na view
@@ -46,6 +44,10 @@ namespace TestePontual.Controllers
 
             var ClientesListViewModel = new ClienteListViewModel();
             ClientesListViewModel.Clientes = _context.Clientes;
+
+            //armazena dados por chave valor não tipada
+            ViewBag.Titulo = "Lista de Clientes";
+            //ViewBag.TotalClientes = ClientesListViewModel.Count();
 
 
             return View(ClientesListViewModel);

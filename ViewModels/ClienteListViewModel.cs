@@ -9,5 +9,6 @@ namespace TestePontual.ViewModels
     public class ClienteListViewModel
     {
         public IEnumerable<Cliente> Clientes { get; set; }
+
     }
 }
