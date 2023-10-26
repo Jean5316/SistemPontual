@@ -1,0 +1,11 @@
+@model Cliente//definindo model
+
+<div class="col-sm-4 col-md-4 col-lg-4">
+    <p>Nome: @Model.Nome</p>
+    <p>Contato: @Model.Numero</p>
+    <p>Email: @Model.Email</p>
+
+    <a asp-action="Editar" asp-route-id="@Model.Id"><button>Editar</button></a>
+    <a asp-action="Detalhes" asp-route-id="@Model.Id"><button>Detalhes</button></a>
+    <a asp-action="Delete" asp-route-id="@Model.Id"><button>Deletar</button></a>
+</div>

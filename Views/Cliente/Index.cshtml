@@ -26,21 +26,8 @@ Layout = null;
 
         @foreach (var i in Model.Clientes)
         {
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <p>Nome: @Html.DisplayFor(model => i.Nome)</p>
-                <p>Contato: @Html.DisplayFor(model => i.Contato)</p>
-                <p>Email: @Html.DisplayFor(model => i.Email)</p>
-
-                <a asp-action="Editar" asp-route-id="@i.Id"><button>Editar</button></a>
-                <a asp-action="Detalhes" asp-route-id="@i.Id"><button>Detalhes</button></a>
-                <a asp-action="Delete" asp-route-id="@i.Id"><button>Deletar</button></a>
-            </div>
-
-
+            <partial name="_ClienteResumo" for="@i"/>
         }
-
-
-
 
         <h1>@ViewData["Data"]</h1>
         <h2>@ViewBag.Total:@ViewBag.TotalClientes</h2>
