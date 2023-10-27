@@ -14,7 +14,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace TestePontual.Controllers
 {
-    [Authorize]
+    
+    [Authorize]//configurando autorização de acesso
     public class ClientesController : Controller
     {
         //implementação do serviço do contexto representado pela interface de repositorio
@@ -24,8 +25,9 @@ namespace TestePontual.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]//Permite acesso somente ao metodo especifico, sempre quem tem prioridade é o allowanonymous(tomar cuidado ao ultilizar)
         //Pagina index 
-        public IActionResult Index(string pesquisa)
+        public IActionResult Index()
         {
 
             //amazenas dados por chave e valor tipada
@@ -44,15 +46,13 @@ namespace TestePontual.Controllers
             //armazena dados por chave valor não tipada
             ViewBag.Titulo = "Lista de Clientes";
             //ViewBag.TotalClientes = ClientesListViewModel.Count();
-             if (User.Identity.IsAuthenticated)
-            {
-                return View(Clientes);
-            }
-            return RedirectToAction("Login", "Account");
+            
+             
+            return View(Clientes);
 
         }
-
-        [Authorize]
+        
+        [Authorize]//configurando autorização de acesso
         //Carrega Pagina de Criar(Criar.cshtml)
         public IActionResult Criar()
         {
@@ -83,7 +83,12 @@ namespace TestePontual.Controllers
             {
                 return NotFound();
             }
-            return View(cliente);
+
+            if (User.Identity.IsAuthenticated)//configurando autorização de acesso
+            {
+                return View(cliente);
+            }
+            return RedirectToAction("Login", "Account");
         }
 
         [HttpPost]
