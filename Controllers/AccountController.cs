@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using TestePontual.ViewModels;
 
 namespace TestePontual.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
@@ -15,7 +18,7 @@ namespace TestePontual.Controllers
             _signInManager = signInManager;
         }
 
-
+        [AllowAnonymous]
         public IActionResult Login(string returnUrl)
         {
             return View(new LoginViewModel()
@@ -24,6 +27,7 @@ namespace TestePontual.Controllers
             });
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel login)
         {
@@ -37,7 +41,7 @@ namespace TestePontual.Controllers
 
             if (user != null)
             {
-                var result = await _signInManager.PasswordSignInAsync(user, login.Password, false, false);
+                var result = await _signInManager.PasswordSignInAsync(user, login.Password, false, false);//entrar no sistema
 
                 if (result.Succeeded)
                 {
@@ -45,16 +49,23 @@ namespace TestePontual.Controllers
                     {
                         return RedirectToAction("Index", "Home");
                     }
+
                     return Redirect(login.ReturnUrl);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Usuario ou senha Invalidos");
+                    return View(login);
+
                 }
             }
 
 
-            ModelState.AddModelError("", "Falha ao Logar");
+            ModelState.AddModelError("", "Usuario não registrado");
             return View(login);
 
         }
-
+        
         public IActionResult Register()
         {
             return View();
