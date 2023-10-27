@@ -1,0 +1,20 @@
+@model Cliente;
+@{
+  ViewData["Title"] = "Detalhes de Cliente";
+}
+
+<div class="container">
+
+  <div class="mb-3">
+    <label class="form-label">@Html.DisplayNameFor(Model => Model.Nome)</label>
+    <input class="form-control" value="@Html.DisplayFor(Model => Model.Nome)">
+
+    <label class="form-label">@Html.DisplayNameFor(Model => Model.Contato)</label>
+    <input class="form-control" value="@Html.DisplayFor(Model => Model.Contato)">
+
+    <label class="form-label">@Html.DisplayNameFor(Model => Model.Email)</label>
+    <input class="form-control" value="@Html.DisplayFor(Model => Model.Email)">
+  </div>
+
+  <a asp-action="Criar"><button type="button" class="btn btn-primary">Cadastrar Cliente</button></a>
+</div>

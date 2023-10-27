@@ -9,15 +9,17 @@ using TestePontual.Repositories;
 using TestePontual.Repository;
 using TestePontual.ViewModels;
 using System.Data.Common;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace TestePontual.Controllers
 {
-    public class ClienteController : Controller
+    [Authorize]
+    public class ClientesController : Controller
     {
         //implementação do serviço do contexto representado pela interface de repositorio
         private readonly IClienteRepository _context;
-        public ClienteController(IClienteRepository context)
+        public ClientesController(IClienteRepository context)
         {
             _context = context;
         }
@@ -38,19 +40,25 @@ namespace TestePontual.Controllers
             // var ClientesListViewModel = new ClienteListViewModel();
             // ClientesListViewModel.Clientes = _context.Clientes.ToList();
             var Clientes = _context.Clientes.ToList();
-            
+
             //armazena dados por chave valor não tipada
             ViewBag.Titulo = "Lista de Clientes";
             //ViewBag.TotalClientes = ClientesListViewModel.Count();
-            
-            return View(Clientes);
+             if (User.Identity.IsAuthenticated)
+            {
+                return View(Clientes);
+            }
+            return RedirectToAction("Login", "Account");
 
         }
 
+        [Authorize]
         //Carrega Pagina de Criar(Criar.cshtml)
         public IActionResult Criar()
         {
-            return View();
+            
+                return View();
+
         }
 
         //Grava Dados Criados no Banco de Dados
