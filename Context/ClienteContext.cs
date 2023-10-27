@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace TestePontual.Context
 {
-    public class ClienteContext : DbContext
+    public class ClienteContext : IdentityDbContext<IdentityUser>
     {
         public ClienteContext(DbContextOptions<ClienteContext> options) : base(options)
         {

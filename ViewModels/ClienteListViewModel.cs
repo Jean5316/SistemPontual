@@ -12,12 +12,8 @@ namespace TestePontual.ViewModels
 
         
 
-        
 
-        
 
-        
 
-        
     }
 }

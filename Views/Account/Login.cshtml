@@ -1,0 +1,39 @@
+@model LoginViewModel
+<table class="table">
+    <tr>
+        <td>
+           <img src="https://pontualinformatica.net.br/assets/images/logo-pontual-png-231x121.png" alt="Pontual"> 
+        </td>
+        <td>
+            <div class="row">
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <h4>Login</h4>
+                    <form asp-action="Login">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="ReturnUrl" />
+                            <label asp-for="UserName" class="col-md-2 control-label"></label>
+                            <input asp-for="UserName" class="form-control">
+                            @Html.ValidationMessageFor(Model => Model.UserName)
+                        </div>
+                        
+                        <div class="form-group">
+                            <label asp-for="Password" class="col-md-2 control-label"></label>
+                            <input asp-for="Password" class="form-control">
+                            @Html.ValidationMessageFor(Model => Model.Password)
+
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <div class="col-md-8">
+                                <input type="submit" class="btn btn-primary" value="Login">
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </td>
+    </tr>
+</table>

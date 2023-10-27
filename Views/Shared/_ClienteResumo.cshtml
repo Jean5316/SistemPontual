@@ -1,12 +1,15 @@
 @model Cliente//definindo model
+<tr>
+    <td class="table-dark">@Html.DisplayFor(model => model.Nome)</td>
+    <td class="table-dark">@Html.DisplayFor(model => model.Contato)</td>
+    <td class="table-dark">@Html.DisplayFor(model => model.Email)</td>
+    <td class="table-dark">@Html.DisplayFor(model => model.Cidade)</td>
+    <td class="table-dark">@Html.DisplayFor(model => model.Estado)</td>
+    <td class="table-dark"><a asp-action="Editar" asp-route-id="@Model.Id"><button
+                class="btn btn-primary">Editar</button></a></td>
+    <td class="table-dark"><a asp-action="Detalhes" asp-route-id="@Model.Id"><button
+                class="btn btn-primary">Detalhes</button></a></td>
+    <td class="table-dark"> <a asp-action="Delete" asp-route-id="@Model.Id"><button
+                class="btn btn-primary">Deletar</button></a></td>
 
-
-<div class="col-sm-4 col-md-4 col-lg-4">
-    <p>@Html.DisplayNameFor(Model => Model.Nome): @Html.DisplayFor(Model => Model.Nome)</p>
-    <p>@Html.DisplayNameFor(Model => Model.Contato): @Html.DisplayFor(Model => Model.Contato)</p>
-    <p>@Html.DisplayNameFor(Model => Model.Email): @Html.DisplayFor(Model => Model.Email)</p>
-
-    <a asp-action="Editar" asp-route-id="@Model.Id"><button>Editar</button></a>
-    <a asp-action="Detalhes" asp-route-id="@Model.Id"><button>Detalhes</button></a>
-    <a asp-action="Delete" asp-route-id="@Model.Id"><button>Deletar</button></a>
-</div>
+</tr>

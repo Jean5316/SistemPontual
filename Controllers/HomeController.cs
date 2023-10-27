@@ -15,7 +15,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        return RedirectToAction("Login", "Account");
     }
 
     public IActionResult Privacy()
@@ -23,11 +23,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Lanches()
-    {
-        return View();
-    }
-
+    
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

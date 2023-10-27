@@ -8,6 +8,7 @@ using TestePontual.Context;
 using TestePontual.Repositories;
 using TestePontual.Repository;
 using TestePontual.ViewModels;
+using System.Data.Common;
 
 
 namespace TestePontual.Controllers
@@ -34,19 +35,15 @@ namespace TestePontual.Controllers
             // TempData["Nome"] = "Teste TEMPDATA";
 
 
-            var ClientesListViewModel = new ClienteListViewModel();
-            ClientesListViewModel.Clientes = _context.Clientes;
-            //ClientesListViewModel.Clientes = _context.Clientes.Where(x => x.Nome.Contains(pesquisa)).ToList();
-
-
-
-
+            // var ClientesListViewModel = new ClienteListViewModel();
+            // ClientesListViewModel.Clientes = _context.Clientes.ToList();
+            var Clientes = _context.Clientes.ToList();
+            
             //armazena dados por chave valor não tipada
             ViewBag.Titulo = "Lista de Clientes";
             //ViewBag.TotalClientes = ClientesListViewModel.Count();
-
-
-            return View(ClientesListViewModel);
+            
+            return View(Clientes);
 
         }
 

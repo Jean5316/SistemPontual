@@ -1,37 +1,38 @@
-@model ClienteListViewModel
+@model IEnumerable<Cliente>
 
-@* @{
-Usada para trocar o template padrao da pagina
-Layout = null;
-} *@
-
-<a asp-action="Criar"><button>Cadastrar Cliente</button></a>
-<div class="filter">
-    <form asp-action="Index">
-        <input type="search" placeholder="Filtrar Cliente" name="pesquisa">
-        <button type="submit">Filtrar</button>
-    </form>
-    <br>
-</div>
-<hr>
+@{
+    //Usada para trocar o template padrao da pagina
+    @* Layout = null; *@
+}
 <h1 class="Nome">@ViewBag.Titulo</h1>
-
-
-
-
-
+<a asp-action="Criar"><button class="btn btn-primary">Adicionar Cliente</button></a>
+<br>
+<br>
 
 <div class="container">
     <div class="row">
-        
-
-        @foreach (var i in Model.Clientes)
-        {
-            <partial name="_ClienteResumo" for="@i"/>
-        }
-
-        <h1>@ViewData["Data"]</h1>
-        <h2>@ViewBag.Total:@ViewBag.TotalClientes</h2>
-        <h2>@TempData["Nome"]</h2>
+        <div class="col-sm-10 col-md-10 col-lg-10">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(Model => Model.Nome)</th>
+                        <th>@Html.DisplayNameFor(Model => Model.Contato)</th>
+                        <th>@Html.DisplayNameFor(Model => Model.Email)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var i in Model)
+                    {
+                        <partial name="_ClienteResumo" for="@i" />
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
+
+
+    @* <h1>@ViewData["Data"]</h1>
+    <h2>@ViewBag.Total:@ViewBag.TotalClientes</h2>
+    <h2>@TempData["Nome"]</h2> *@
+
 </div>

@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\jean1\.vscode\Projects\C#\TestePontual
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Cliente/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDcmlhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
