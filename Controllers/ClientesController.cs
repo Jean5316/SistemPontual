@@ -134,7 +134,6 @@ namespace TestePontual.Controllers
         }
 
         //Deleta Cliente Do Banco de Dados
-        [HttpGet]
         public IActionResult Delete(int Id)
         {
             var cliente = _context.GetClientById(Id);

@@ -94,6 +94,19 @@ namespace SistemPontual.Controllers
 
         }
 
+        public async Task<IActionResult> ExcluirUsuario(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);//busca user no banco pelo id e retorno obj do tipo Identity
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            await _userManager.DeleteAsync(user);
+            
+            return RedirectToAction("Index", "Usuarios");
+        }
+
 
     }
 }
