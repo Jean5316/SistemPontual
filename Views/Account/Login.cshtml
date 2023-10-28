@@ -2,7 +2,7 @@
 <table class="table">
     <tr>
         <td>
-            <img src="https://pontualinformatica.net.br/assets/images/logo-pontual-png-231x121.png" alt="Pontual">
+            <img src="https://pontualinformatica.net.br/assets/images/logo-pontual-png-231x121.png" width="500px" height="500px" alt="Pontual">
         </td>
         <td>
             <div class="row">
@@ -10,7 +10,7 @@
                     <h4>Login</h4>
                      <form asp-controller="Account" asp-action="Login">
                          <hr />
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div asp-validation-summary="All" class="text-danger"></div>
                         <input type="hidden" asp-for="ReturnUrl" />
                         <div class="form-group">
                             

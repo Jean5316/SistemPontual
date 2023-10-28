@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace TestePontual.Controllers
 {
-    
+
     [Authorize]//configurando autorização de acesso
     public class ClientesController : Controller
     {
@@ -27,7 +27,8 @@ namespace TestePontual.Controllers
 
         [AllowAnonymous]//Permite acesso somente ao metodo especifico, sempre quem tem prioridade é o allowanonymous(tomar cuidado ao ultilizar)
         //Pagina index 
-        public IActionResult Index()
+        
+        public IActionResult Index(string searchString)
         {
 
             //amazenas dados por chave e valor tipada
@@ -43,21 +44,31 @@ namespace TestePontual.Controllers
             // ClientesListViewModel.Clientes = _context.Clientes.ToList();
             var Clientes = _context.Clientes.ToList();
 
+            
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                var cliente = _context.Clientes.Where(s => s.Nome.ToLower().Contains(searchString.ToLower()));
+                return View(cliente);
+            }
+
+
+
             //armazena dados por chave valor não tipada
             ViewBag.Titulo = "Lista de Clientes";
             //ViewBag.TotalClientes = ClientesListViewModel.Count();
-            
-             
+
+
             return View(Clientes);
 
         }
-        
+
         [Authorize]//configurando autorização de acesso
         //Carrega Pagina de Criar(Criar.cshtml)
         public IActionResult Criar()
         {
-            
-                return View();
+
+            return View();
 
         }
 

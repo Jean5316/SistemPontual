@@ -1,16 +1,36 @@
 @model IEnumerable<IdentityUser>
 
 <h2>Lista de Usuários</h2>
-<table class="table">
-    <tr>
-        <th>Nome de Usuário</th>
-        <th>Email</th>
-    </tr>
-    @foreach (var user in Model)
-    {
-        <tr>
-            <td>@user.UserName</td>
-            
-        </tr>
-    }
-</table>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-md-8 col-lg-8">
+            <table class="table table-dark table-striped text-center">
+                <thead>
+                    <tr>
+                        <th style="color: #fff;">Nome Usuario</th>
+                        <th style="color: #fff;">Email</th>
+                        <th><input type="hidden" name=""></th>
+                        <th><input type="hidden" name=""></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td class="table-dark">@user.UserName</td>
+                            <td class="table-dark">@user.Email</td>
+                            <td class="table-dark"><a asp-action="EditarUsuario" asp-route-id="@user.Id"><button
+                                        class="btn btn-primary">Editar</button></a></td>
+                            <td class="table-dark"><a asp-action="ExcluirUsuario" asp-route-id="@user.Id"><button
+                                        class="btn btn-primary">Excluir</button></a></td>
+                            
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

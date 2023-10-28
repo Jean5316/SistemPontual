@@ -12,6 +12,8 @@ namespace TestePontual.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
 
+
+
         public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _userManager = userManager;
@@ -24,6 +26,7 @@ namespace TestePontual.Controllers
             return View(new LoginViewModel()
             {
                 ReturnUrl = returnUrl
+
             });
         }
 
@@ -36,8 +39,8 @@ namespace TestePontual.Controllers
                 return View(login);
             }
 
-
             var user = await _userManager.FindByNameAsync(login.UserName);
+
 
             if (user != null)
             {
@@ -62,31 +65,46 @@ namespace TestePontual.Controllers
 
 
             ModelState.AddModelError("", "Usuario não registrado");
-            return View(login);
+            return View();
 
         }
-        
+
+        //Carrega page Register
         public IActionResult Register()
         {
             return View();
         }
 
+
+        //Carrega page Register POST
         [HttpPost]
         [ValidateAntiForgeryToken]//bloqueia duplicidade de formulario
-        public async Task<IActionResult> Register(LoginViewModel registro)
+        public async Task<IActionResult> Register(RegisterViewModel registro)
         {
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = registro.UserName };
+                var user = await _userManager.FindByNameAsync(registro.UserName);
+                if (user != null)
+                {
+                    ModelState.AddModelError("", "Usuario ja registrado!");
+                }
+
+                user = new IdentityUser
+                {
+                    UserName = registro.UserName,
+                    Email = registro.Email,
+                };
+
                 var result = await _userManager.CreateAsync(user, registro.Password);
+
                 if (result.Succeeded)
                 {
-                    await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Login", "Account");
+                    //await _signInManager.SignInAsync(user, false);
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    this.ModelState.AddModelError("Registro", "Falha ao registrar usuario!");
+                    ModelState.AddModelError("", "Falha ao registrar usuario!");
                 }
             }
             return View(registro);

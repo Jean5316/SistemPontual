@@ -36,6 +36,8 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequireUppercase = false;
     options.Password.RequiredLength = 1;
     options.Password.RequiredUniqueChars = 1;
+    options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 -._@+";
+    options.User.RequireUniqueEmail = false;
 });
 
 builder.Services.AddControllersWithViews();

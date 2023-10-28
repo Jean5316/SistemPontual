@@ -23,11 +23,26 @@ html {
 }
 
 body {
-  background-color: rgb(115, 8, 255);
+  background-color: rgb(100, 40, 179);
 }
 
 h1 {
-  color: white;
+  color: #fff;
+}
+h2{
+  color: #fff;
+}
+
+h3{
+  color: #fff;
+}
+
+h4{
+  color: #fff;
+}
+
+p{
+  color: #fff;
 }
 
 label {
