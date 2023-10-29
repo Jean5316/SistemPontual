@@ -69,16 +69,19 @@ namespace SistemPontual.Controllers
                 UsuarioDB.UserName = Usuario.UserName;
                 UsuarioDB.Email = Usuario.Email;
 
-                if (_userManager.CheckPasswordAsync(UsuarioDB, Usuario.currentPassword).Result)
+                if (Usuario.currentPassword != null)
                 {
+                    if (_userManager.CheckPasswordAsync(UsuarioDB, Usuario.currentPassword).Result)
+                    {
 
-                    await _userManager.ChangePasswordAsync(UsuarioDB, Usuario.currentPassword, Usuario.Password);//atualiza a senha
+                        await _userManager.ChangePasswordAsync(UsuarioDB, Usuario.currentPassword, Usuario.Password);//atualiza a senha
 
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Senha atual incorreta");
-                    return View(Usuario);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Senha atual incorreta");
+                        return View(Usuario);
+                    }
                 }
 
                 var result = _userManager.UpdateAsync(UsuarioDB).Result;//primeiro atualiza o nome e email
@@ -93,7 +96,7 @@ namespace SistemPontual.Controllers
                 }
             }
 
-            return View();
+            return View(Usuario);
 
 
 
