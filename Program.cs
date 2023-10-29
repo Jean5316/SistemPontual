@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using TestePontual.Context;
 using TestePontual.Repositories;
 using TestePontual.Repository;
+using TestePontual.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 //Configure Services = registro de middlewares
 
 //cria automaticamente os objetos das classes
-//injeção dependencia string connection
+//registrando dependencia string connection
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlite(builder.Configuration.GetConnectionString("ConexaoSqlite")));
 
@@ -19,14 +20,14 @@ options.UseSqlite(builder.Configuration.GetConnectionString("ConexaoSqlite")));
 builder.Services.AddTransient<IClienteRepository, ClienteRepositories>();
 
 //configurando session e httpContext
-//configurando httpcontext
+//registrando dependencia httpcontext
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-//configurando Session
+//registrando dependencia Session
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 
-//registro serviço identity
+//registando dependencia identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
@@ -44,6 +45,19 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 -._@+";
     options.User.RequireUniqueEmail = false;
 });
+
+//registando dependencia UserRoles
+builder.Services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
+
+//inluindo nova politica e informando necessidade de perfil
+builder.Services.AddAuthorization(options =>
+    options.AddPolicy("Admin",
+        policy =>
+        {
+            policy.RequireRole("Admin");
+        }
+    )
+);
 
 builder.Services.AddControllersWithViews();
 
@@ -66,6 +80,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+CriarPerfisUsuarios(app);
+
 app.UseSession();
 
 app.UseAuthentication();
@@ -89,3 +106,13 @@ app.UseEndpoints(endpoints =>
 
 app.Run();
 
+void CriarPerfisUsuarios(WebApplication app)
+{
+    var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+    using (var scope = scopedFactory.CreateScope())
+    {
+        var service = scope.ServiceProvider.GetService<ISeedUserRoleInitial>();
+        service.SeedUsers();
+        service.SeedRoles();
+    }
+}

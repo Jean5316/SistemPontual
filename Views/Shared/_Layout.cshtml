@@ -18,7 +18,7 @@
 
 <body>
     <header>
-         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img
                         src="https://pontualinformatica.net.br/assets/images/logo-pontual-png-231x121.png"
@@ -36,16 +36,20 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Home"
                                 asp-action="Privacy">Privacy</a>
                         </li>
-                        
+
                         @await Html.PartialAsync("_Add_Link_Nav")
-                         
+
                     </ul>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a class="nav-link text-white" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admins</a>
+                    }
                     @await Html.PartialAsync("_LoginPartial")
                 </div>
             </div>
         </nav>
     </header>
-        <div class="container">
+    <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

@@ -6,7 +6,7 @@ using TestePontual.ViewModels;
 
 namespace TestePontual.Controllers
 {
-    [Authorize]
+    
     public class AccountController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
@@ -68,14 +68,14 @@ namespace TestePontual.Controllers
             return View();
 
         }
-
+[Authorize("Admin")]
         //Carrega page Register
         public IActionResult Register()
         {
             return View();
         }
 
-
+[Authorize("Admin")]
         //Carrega page Register POST
         [HttpPost]
         [ValidateAntiForgeryToken]//bloqueia duplicidade de formulario
@@ -100,6 +100,7 @@ namespace TestePontual.Controllers
                 if (result.Succeeded)
                 {
                     //await _signInManager.SignInAsync(user, false);
+                    await _userManager.AddToRoleAsync(user, "Member");
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -117,6 +118,12 @@ namespace TestePontual.Controllers
             HttpContext.User = null;
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult AccessDenied()
+        {
+            ViewBag.Titulo = "Acess Denied";
+            return View();
         }
     }
 }
