@@ -14,7 +14,7 @@ namespace TestePontual.ViewModels
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "O email é obrigatorio")]
-        //[EmailAddress]//ja salva criando link 
+        [DataType(DataType.EmailAddress, ErrorMessage = "Digite um email valido")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
@@ -47,7 +47,7 @@ namespace TestePontual.ViewModels
         public string UserName { get; set; }
 
         
-        //[EmailAddress]//ja salva criando link 
+        [DataType(DataType.EmailAddress, ErrorMessage = "Digite um email valido")] 
         [Display(Name = "Email")]
         public string Email { get; set; }
 
