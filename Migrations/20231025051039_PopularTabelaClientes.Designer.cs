@@ -9,7 +9,7 @@ using TestePontual.Context;
 
 namespace TestePontual.Migrations
 {
-    [DbContext(typeof(ClienteContext))]
+    [DbContext(typeof(AppDbContext))]
     [Migration("20231025051039_PopularTabelaClientes")]
     partial class PopularTabelaClientes
     {

@@ -10,9 +10,9 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace TestePontual.Context
 {
-    public class ClienteContext : IdentityDbContext<IdentityUser>
+    public class AppDbContext : IdentityDbContext<IdentityUser>
     {
-        public ClienteContext(DbContextOptions<ClienteContext> options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             
         }

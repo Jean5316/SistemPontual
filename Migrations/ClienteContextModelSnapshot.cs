@@ -9,7 +9,7 @@ using TestePontual.Context;
 
 namespace TestePontual.Migrations
 {
-    [DbContext(typeof(ClienteContext))]
+    [DbContext(typeof(AppDbContext))]
     partial class ClienteContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

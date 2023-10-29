@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 //cria automaticamente os objetos das classes
 //injeção dependencia string connection
-builder.Services.AddDbContext<ClienteContext>(options =>
+builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlite(builder.Configuration.GetConnectionString("ConexaoSqlite")));
 
 //registrando dependencia do repository de cliente
@@ -22,10 +22,15 @@ builder.Services.AddTransient<IClienteRepository, ClienteRepositories>();
 //configurando httpcontext
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+//configurando Session
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
+
 //registro serviço identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<ClienteContext>()
+    .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
+
 //alteração nas politicas de senha do identity
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -42,9 +47,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 builder.Services.AddControllersWithViews();
 
-//configurando Session
-builder.Services.AddMemoryCache();
-builder.Services.AddSession();
+
 
 
 
@@ -68,8 +71,21 @@ app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+#pragma warning disable ASP0014 // Suggest using top level route registrations
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}"
+    );
+
+    endpoints.MapControllerRoute(
+        name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+        );
+});
+#pragma warning restore ASP0014 // Suggest using top level route registrations
+
 
 app.Run();
+

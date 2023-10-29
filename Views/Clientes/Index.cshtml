@@ -1,30 +1,33 @@
-@model IEnumerable<Cliente>
-
+@model ClienteListViewModel
 @{
     //Usada para trocar o template padrao da pagina
     @* Layout = null; *@
 }
 
+
 <div class="container">
-    <partial name="_SearchCliente">
+    <h1 class="Nome">@ViewBag.Titulo</h1>
+    <a asp-action="Criar"><button class="btn btn-primary">Adicionar Cliente</button></a>
+    <br>
+    <br>
     <div class="row">
         <div class="col-sm-10 col-md-10 col-lg-10">
             <table class="table table-dark table-striped text-center">
                 <thead>
                     <tr>
                         <br>
-                        <th>@Html.DisplayNameFor(Model => Model.Nome)</th>
-                        <th>@Html.DisplayNameFor(Model => Model.Contato)</th>
-                        <th>@Html.DisplayNameFor(Model => Model.Email)</th>
-                        <th>@Html.DisplayNameFor(Model => Model.Cidade)</th>
-                        <th>@Html.DisplayNameFor(Model => Model.Estado)</th>
+                        <th>Nome</th>
+                        <th>Numero de Contato</th>
+                        <th>Email</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
                         <th><input type="hidden" name=""></th>
                         <th><input type="hidden" name=""></th>
                         <th><input type="hidden" name=""></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var i in Model)
+                    @foreach (var i in Model.Clientes)
                     {
                         <partial name="_ClienteResumo" for="@i" />
                     }

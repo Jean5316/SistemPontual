@@ -26,9 +26,9 @@ namespace TestePontual.Controllers
         }
 
         [AllowAnonymous]//Permite acesso somente ao metodo especifico, sempre quem tem prioridade é o allowanonymous(tomar cuidado ao ultilizar)
-        //Pagina index 
-        
-        public IActionResult Index(string searchString)
+                        //Pagina index 
+
+        public IActionResult Index()
         {
 
             //amazenas dados por chave e valor tipada
@@ -40,26 +40,16 @@ namespace TestePontual.Controllers
             // TempData["Nome"] = "Teste TEMPDATA";
 
 
-            // var ClientesListViewModel = new ClienteListViewModel();
-            // ClientesListViewModel.Clientes = _context.Clientes.ToList();
-            var Clientes = _context.Clientes.ToList();
-
-            
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                var cliente = _context.Clientes.Where(s => s.Nome.ToLower().Contains(searchString.ToLower()));
-                return View(cliente);
-            }
-
-
+            var ClientesListViewModel = new ClienteListViewModel();
+            ClientesListViewModel.Clientes = _context.Clientes;
+            //var Clientes = _context.Clientes.ToList();
 
             //armazena dados por chave valor não tipada
             ViewBag.Titulo = "Lista de Clientes";
             //ViewBag.TotalClientes = ClientesListViewModel.Count();
 
 
-            return View(Clientes);
+            return View(ClientesListViewModel);
 
         }
 

@@ -11,7 +11,7 @@ namespace TestePontual.Models
     [Table("Clientes")]//define nome da tebela no banco de dados
     public class Cliente
     {
-       
+
 
         [Key]
         public int Id { get; set; }
@@ -25,6 +25,8 @@ namespace TestePontual.Models
         [StringLength(11, MinimumLength = 10, ErrorMessage = "O Campo deve ser preenchido com numero de celular ou telefone fixo")]
         public string Contato { get; set; }
 
+
+        [DataType(DataType.EmailAddress, ErrorMessage = "Digite um email valido!")]
         public string Email { get; set; }
         [DisplayFormat(DataFormatString = "79004-310")]
         public string Cep { get; set; }
@@ -34,6 +36,8 @@ namespace TestePontual.Models
 
         [Range(1, 9999, ErrorMessage = "Excedeu o valor maximo do campo!")]
         public int Numero { get; set; }
+
+
         public string Complemento { get; set; }
 
         [StringLength(50, MinimumLength = 4)]
@@ -45,7 +49,7 @@ namespace TestePontual.Models
         [StringLength(25, MinimumLength = 4)]
         public string Estado { get; set; }
 
-        
+
 
 
     }

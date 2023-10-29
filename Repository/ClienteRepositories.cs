@@ -15,9 +15,9 @@ namespace TestePontual.Repositories
     public class ClienteRepositories : IClienteRepository
     {
         //injeção de instancia da classe de context para acessar os dados
-        private readonly ClienteContext _context;
+        private readonly AppDbContext _context;
 
-        public ClienteRepositories(ClienteContext context)
+        public ClienteRepositories(AppDbContext context)
         {
             _context = context;
         }
