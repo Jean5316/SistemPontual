@@ -37,6 +37,34 @@ namespace TestePontual.ViewModels
 
         public string ReturnUrl { get; set; }
 
+
+    }
+
+    public class EditarUsuarioViewModel
+    {
         
+        [Display(Name = "Usuario")]
+        public string UserName { get; set; }
+
+        
+        //[EmailAddress]//ja salva criando link 
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [DataType(DataType.Password)]
+        [StringLength(100, ErrorMessage = "A {0} deve ter {2} e no maximo {1} characteres", MinimumLength = 6)]
+        [Display(Name = "Senha Atual")]
+        public string currentPassword { get; set; }
+
+        
+        [DataType(DataType.Password)]
+        [StringLength(100, ErrorMessage = "A {0} deve ter {2} e no maximo {1} characteres", MinimumLength = 6)]
+        [Display(Name = "Senha")]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Senha de Confirmação")]
+        [Compare("Password", ErrorMessage = "A Senha deve ser igual!")]
+        public string ConfirmPassword { get; set; }
     }
 }

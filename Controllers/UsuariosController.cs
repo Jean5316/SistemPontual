@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
 using TestePontual.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using TestePontual.Context;
 
 namespace SistemPontual.Controllers
 {
@@ -37,7 +38,8 @@ namespace SistemPontual.Controllers
                 return NotFound();
             }
 
-            var User = new RegisterViewModel//cria um novo obj do tipo RegisterViewModel e enviar para model
+
+            var User = new EditarUsuarioViewModel//cria um novo obj do tipo RegisterViewModel e enviar para model
             {
                 UserName = user.UserName,
                 Email = user.Email,
@@ -49,50 +51,54 @@ namespace SistemPontual.Controllers
 
         }
 
+
+
+
         [HttpPost]
-        public async Task<IActionResult> EditarUsuario(RegisterViewModel user)
+        public async Task<IActionResult> EditarUsuario(EditarUsuarioViewModel Usuario, string id)
         {
+
             if (ModelState.IsValid)
             {
-                var UserDb = await _userManager.FindByNameAsync(user.UserName);
-                UserDb.UserName = user.UserName;
-                UserDb.Email = user.Email;
-                // UserDb = new IdentityUser
-                // {
-                //     UserName = user.UserName,
-                //     Email = user.Email,
-                // };
-
-                // if (UserDb != null)
-                // {
-                //     ModelState.AddModelError("", "Usuario ja registrado!");
-                // }
-
-                var result = await _userManager.UpdateAsync(UserDb);//primeiro atualiza o nome e email
-                result = await _userManager.ChangePasswordAsync(UserDb, user.currentPassword, user.Password);//atualiza a senha
-                if (result.Succeeded)
+                var UsuarioDB = _userManager.FindByIdAsync(id).Result;//pega user logado
+                if (UsuarioDB == null)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return NotFound();
+                }
+
+                UsuarioDB.UserName = Usuario.UserName;
+                UsuarioDB.Email = Usuario.Email;
+
+                if (_userManager.CheckPasswordAsync(UsuarioDB, Usuario.currentPassword).Result)
+                {
+
+                    await _userManager.ChangePasswordAsync(UsuarioDB, Usuario.currentPassword, Usuario.Password);//atualiza a senha
+
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Falha ao Editar Usuario");
+                    ModelState.AddModelError("", "Senha atual incorreta");
+                    return View(Usuario);
                 }
 
+                var result = _userManager.UpdateAsync(UsuarioDB).Result;//primeiro atualiza o nome e email
 
-
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Usuarios");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Usuario não atualizado");
+                }
             }
 
-            var User = new RegisterViewModel//cria um novo obj do tipo RegisterViewModel e enviar para model
-            {
-                UserName = user.UserName,
-                Email = user.Email,
+            return View();
 
-            };
 
-            return View(User);
 
         }
+
 
         public async Task<IActionResult> ExcluirUsuario(string id)
         {
@@ -103,7 +109,7 @@ namespace SistemPontual.Controllers
             }
 
             await _userManager.DeleteAsync(user);
-            
+
             return RedirectToAction("Index", "Usuarios");
         }
 
