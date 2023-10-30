@@ -6,18 +6,18 @@ using TestePontual.ViewModels;
 
 namespace TestePontual.Controllers
 {
-    
+
     public class AccountController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-
-
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
         }
 
         [AllowAnonymous]
@@ -26,6 +26,7 @@ namespace TestePontual.Controllers
             return View(new LoginViewModel()
             {
                 ReturnUrl = returnUrl
+
 
             });
         }
@@ -50,6 +51,7 @@ namespace TestePontual.Controllers
                 {
                     if (string.IsNullOrEmpty(login.ReturnUrl))
                     {
+
                         return RedirectToAction("Index", "Home");
                     }
 
@@ -68,14 +70,15 @@ namespace TestePontual.Controllers
             return View();
 
         }
-[Authorize("Admin")]
+        [Authorize("Admin")]
         //Carrega page Register
         public IActionResult Register()
         {
+
             return View();
         }
 
-[Authorize("Admin")]
+        [Authorize("Admin")]
         //Carrega page Register POST
         [HttpPost]
         [ValidateAntiForgeryToken]//bloqueia duplicidade de formulario
@@ -91,8 +94,8 @@ namespace TestePontual.Controllers
 
                 user = new IdentityUser
                 {
-                    UserName = registro.UserName,
-                    Email = registro.Email,
+                    UserName = registro.UserName.Trim(),
+                    Email = registro.Email.Trim(),
                 };
 
                 var result = await _userManager.CreateAsync(user, registro.Password);
@@ -100,8 +103,8 @@ namespace TestePontual.Controllers
                 if (result.Succeeded)
                 {
                     //await _signInManager.SignInAsync(user, false);
-                    await _userManager.AddToRoleAsync(user, "Member");
-                    return RedirectToAction("Index", "Home");
+                    await _userManager.AddToRoleAsync(user, registro.TipoUsuario);
+                    return RedirectToAction("Index", "Admin");
                 }
                 else
                 {

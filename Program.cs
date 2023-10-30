@@ -5,6 +5,7 @@ using TestePontual.Context;
 using TestePontual.Repositories;
 using TestePontual.Repository;
 using TestePontual.Services;
+using TestePontual.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -116,3 +117,5 @@ void CriarPerfisUsuarios(WebApplication app)
         service.SeedRoles();
     }
 }
+
+

@@ -12,23 +12,43 @@ using TestePontual.Context;
 
 namespace SistemPontual.Controllers
 {
-
+    [Area("Admin")]
     [Authorize("Admin")]
     public class UsuariosController : Controller
     {
 
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public UsuariosController(UserManager<IdentityUser> userManager)
+        public UsuariosController(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
+            _roleManager = roleManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var users = _userManager.Users.ToList();
-            return View(users);
+            var viewModel = new List<UsersViewModel>();
+
+            foreach (var usuario in users)
+            {
+                var roles = await _userManager.GetRolesAsync(usuario);
+                var usuarioViewModel = new UsersViewModel
+                {
+                    Id = usuario.Id,
+                    Nome = usuario.UserName,
+                    Email = usuario.Email,
+                    Tipo = roles
+                };
+                viewModel.Add(usuarioViewModel);
+            }
+
+
+            return View(viewModel);
         }
+
+
 
         public async Task<IActionResult> EditarUsuario(string id)
         {
@@ -47,8 +67,6 @@ namespace SistemPontual.Controllers
             };
 
             return View(User);
-
-
         }
 
 
@@ -84,7 +102,12 @@ namespace SistemPontual.Controllers
                     }
                 }
 
+                var roles = await _userManager.GetRolesAsync(UsuarioDB);
+
+
                 var result = _userManager.UpdateAsync(UsuarioDB).Result;//primeiro atualiza o nome e email
+                result = await _userManager.RemoveFromRolesAsync(UsuarioDB, roles);//remove usuario de role
+                result = await _userManager.AddToRoleAsync(UsuarioDB, Usuario.TipoUsuario);//Atualza usuario da role 
 
                 if (result.Succeeded)
                 {
@@ -97,12 +120,9 @@ namespace SistemPontual.Controllers
             }
 
             return View(Usuario);
-
-
-
         }
 
-        
+
         public async Task<IActionResult> ExcluirUsuario(string id)
         {
             var user = await _userManager.FindByIdAsync(id);//busca user no banco pelo id e retorno obj do tipo Identity

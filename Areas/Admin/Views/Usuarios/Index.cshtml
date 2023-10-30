@@ -1,4 +1,5 @@
-@model IEnumerable<IdentityUser>
+@model List<UsersViewModel>
+
 
 <h2>Lista de Usuários</h2>
 
@@ -10,6 +11,7 @@
                     <tr>
                         <th style="color: #fff;">Nome Usuario</th>
                         <th style="color: #fff;">Email</th>
+                        <th style="color: #fff;">Tipo de Usuario</th>
                         <th><input type="hidden" name=""></th>
                         <th><input type="hidden" name=""></th>
                     </tr>
@@ -18,17 +20,23 @@
                     @foreach (var user in Model)
                     {
                         <tr>
-                            <td class="table-dark">@user.UserName</td>
+                            <td class="table-dark">@user.Nome</td>
                             <td class="table-dark">@user.Email</td>
+                            @foreach (var i in user.Tipo)
+                            {
+                                <td class="table-dark">@i</td>
+                            }
+
                             <td class="table-dark"><a asp-action="EditarUsuario" asp-route-id="@user.Id"><button
                                         class="btn btn-primary">Editar</button></a></td>
                             <td class="table-dark"><a asp-action="ExcluirUsuario" asp-route-id="@user.Id"><button
                                         class="btn btn-primary">Excluir</button></a></td>
-                            
+
 
 
                         </tr>
                     }
+
                 </tbody>
             </table>
         </div>

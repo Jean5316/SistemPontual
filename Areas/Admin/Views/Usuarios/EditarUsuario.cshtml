@@ -24,6 +24,17 @@
                             <input asp-for="Email" class="form-control">
                             @Html.ValidationMessageFor(Model => Model.Email, "", new { @class = "text-danger" })
                         </div>
+
+                         <div class="form-group">
+
+                            <label asp-for="TipoUsuario" class="col-md-2 control-label"></label>
+                            <select asp-for="TipoUsuario" class="form-select">
+                                <option selected>Escolha o Perfil do Usuario</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Tecnico">Tecnico</option>
+                            </select>
+                            @Html.ValidationMessageFor(Model => Model.TipoUsuario, "", new { @class = "text-danger" })
+                        </div>
                         
                         <div class="form-group">
                             <label asp-for="currentPassword" class="col-md-2 control-label"></label>

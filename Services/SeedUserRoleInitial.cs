@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using TestePontual.ViewModels;
 
 namespace TestePontual.Services
 {
@@ -19,12 +20,14 @@ namespace TestePontual.Services
 
         public void SeedRoles()//metodo para criar os perfis
         {
-            if (!_roleManager.RoleExistsAsync("Member").Result)
+            if (!_roleManager.RoleExistsAsync("Tecnico").Result)
             {
                 IdentityRole role = new IdentityRole();
-                role.Name = "Member";
-                role.NormalizedName = "MEMBER";
+                role.Name = "Tecnico";
+                role.NormalizedName = "Tecnico";
                 IdentityResult roleResult = _roleManager.CreateAsync(role).Result;
+
+
             }
 
             if (!_roleManager.RoleExistsAsync("Admin").Result)
@@ -34,30 +37,12 @@ namespace TestePontual.Services
                 role.NormalizedName = "ADMIN";
                 IdentityResult roleResult = _roleManager.CreateAsync(role).Result;
             }
+
+
         }
 
         public void SeedUsers()//metodo para criar os usuarios
         {
-            if (_userManager.FindByNameAsync("Eder").Result == null)
-            {
-                IdentityUser user = new IdentityUser();
-                user.UserName = "Eder";
-                user.Email = "eder@admin.com";
-                user.NormalizedUserName = "EDER";
-                user.NormalizedEmail = "EDER@ADMIN.COM";
-                user.EmailConfirmed = true;
-                user.LockoutEnabled = false;
-                user.SecurityStamp = Guid.NewGuid().ToString();
-
-                IdentityResult result = _userManager.CreateAsync(user, "123456").Result;
-
-                if (result.Succeeded)
-                {
-                    _userManager.AddToRoleAsync(user, "Member").Wait();
-                }
-
-            }
-
             if (_userManager.FindByNameAsync("ADMIN").Result == null)
             {
                 IdentityUser user = new IdentityUser();
@@ -78,5 +63,7 @@ namespace TestePontual.Services
 
             }
         }
+
+        
     }
 }

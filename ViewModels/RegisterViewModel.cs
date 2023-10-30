@@ -18,11 +18,6 @@ namespace TestePontual.ViewModels
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [DataType(DataType.Password)]
-        [StringLength(100, ErrorMessage = "A {0} deve ter {2} e no maximo {1} characteres", MinimumLength = 6)]
-        [Display(Name = "Senha Atual")]
-        public string currentPassword { get; set; }
-
         [Required(ErrorMessage = "Informe a Senha")]
         [DataType(DataType.Password)]
         [StringLength(100, ErrorMessage = "A {0} deve ter {2} e no maximo {1} characteres", MinimumLength = 6)]
@@ -33,6 +28,10 @@ namespace TestePontual.ViewModels
         [Display(Name = "Senha de Confirmação")]
         [Compare("Password", ErrorMessage = "A Senha deve ser igual!")]
         public string ConfirmPassword { get; set; }
+        
+        [Required(ErrorMessage = "O tipo de usuario é obrigatório!")]
+        [Display(Name = "Tipo de Usuario")]
+        public string TipoUsuario { get; set; }
 
 
         public string ReturnUrl { get; set; }
@@ -42,21 +41,25 @@ namespace TestePontual.ViewModels
 
     public class EditarUsuarioViewModel
     {
-        
+
         [Display(Name = "Usuario")]
         public string UserName { get; set; }
 
-        
-        [DataType(DataType.EmailAddress, ErrorMessage = "Digite um email valido")] 
+
+        [DataType(DataType.EmailAddress, ErrorMessage = "Digite um email valido")]
         [Display(Name = "Email")]
         public string Email { get; set; }
+        
+        [Required(ErrorMessage = "O tipo de usuario é obrigatório!")]
+        [Display(Name = "Tipo de Usuario")]
+        public string TipoUsuario { get; set; }
 
         [DataType(DataType.Password)]
         [StringLength(100, ErrorMessage = "A {0} deve ter {2} e no maximo {1} characteres", MinimumLength = 6)]
         [Display(Name = "Senha Atual")]
         public string currentPassword { get; set; }
 
-        
+
         [DataType(DataType.Password)]
         [StringLength(100, ErrorMessage = "A {0} deve ter {2} e no maximo {1} characteres", MinimumLength = 6)]
         [Display(Name = "Senha")]
@@ -67,4 +70,7 @@ namespace TestePontual.ViewModels
         [Compare("Password", ErrorMessage = "A Senha deve ser igual!")]
         public string ConfirmPassword { get; set; }
     }
+
+    
+
 }
