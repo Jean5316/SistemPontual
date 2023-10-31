@@ -136,6 +136,49 @@ namespace SistemPontual.Controllers
             return RedirectToAction("Index", "Usuarios");
         }
 
+         [Authorize("Admin")]
+        //Carrega page Register
+        public IActionResult Register()
+        {
+
+            return View();
+        }
+
+        [Authorize("Admin")]
+        //Carrega page Register POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]//bloqueia duplicidade de formulario
+        public async Task<IActionResult> Register(RegisterViewModel registro)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByNameAsync(registro.UserName);
+                if (user != null)
+                {
+                    ModelState.AddModelError("", "Usuario ja registrado!");
+                }
+
+                user = new IdentityUser
+                {
+                    UserName = registro.UserName.Trim(),
+                    Email = registro.Email.Trim(),
+                };
+
+                var result = await _userManager.CreateAsync(user, registro.Password);
+
+                if (result.Succeeded)
+                {
+                    //await _signInManager.SignInAsync(user, false);
+                    await _userManager.AddToRoleAsync(user, registro.TipoUsuario);
+                    return RedirectToAction("Index", "Admin");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Falha ao registrar usuario!");
+                }
+            }
+            return View(registro);
+        }
 
     }
 }

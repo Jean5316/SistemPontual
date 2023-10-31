@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using TestePontual.Context;
 using TestePontual.Repositories;
 using TestePontual.Repository;
+using TestePontual.Repository.Interfaces;
 using TestePontual.Services;
 using TestePontual.ViewModels;
 
@@ -19,6 +20,9 @@ options.UseSqlite(builder.Configuration.GetConnectionString("ConexaoSqlite")));
 
 //registrando dependencia do repository de cliente
 builder.Services.AddTransient<IClienteRepository, ClienteRepositories>();
+
+//registrar dependencia do repository de produto
+builder.Services.AddTransient<IProdutoRepository, ProdutoRepository>();
 
 //configurando session e httpContext
 //registrando dependencia httpcontext

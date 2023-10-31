@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestePontual.Context;
 
@@ -10,9 +11,11 @@ using TestePontual.Context;
 namespace TestePontual.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class ClienteContextModelSnapshot : ModelSnapshot
+    [Migration("20231031034546_CriacaoTabelaDeProdutos")]
+    partial class CriacaoTabelaDeProdutos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
@@ -207,27 +210,6 @@ namespace TestePontual.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("TestePontual.Areas.Admin.Models.Produto", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("Preco")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Produtos");
                 });
 
             modelBuilder.Entity("TestePontual.Models.Cliente", b =>
