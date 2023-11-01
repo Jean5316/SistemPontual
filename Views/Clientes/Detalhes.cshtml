@@ -6,15 +6,16 @@
 <div class="container">
 
   <div class="mb-3">
-    <label class="form-label">@Html.DisplayNameFor(Model => Model.Nome)</label>
-    <input class="form-control" value="@Html.DisplayFor(Model => Model.Nome)">
+    <label asp-for="Nome" class="form-label"></label>
+    <input asp-for="Nome" class="form-control">
 
     <label class="form-label">@Html.DisplayNameFor(Model => Model.Contato)</label>
     <input class="form-control" value="@Html.DisplayFor(Model => Model.Contato)">
 
-    <label class="form-label">@Html.DisplayNameFor(Model => Model.Email)</label>
-    <input class="form-control" value="@Html.DisplayFor(Model => Model.Email)">
+    <label asp-for="Email" class="form-label"></label>
+    <input asp-for="Email" class="form-control">
   </div>
 
   <a asp-action="Criar"><button type="button" class="btn btn-primary">Cadastrar Cliente</button></a>
+  <a asp-action="Index"><button type="button" class="btn btn-primary">Voltar</button></a>
 </div>

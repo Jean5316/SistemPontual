@@ -18,7 +18,7 @@ namespace TestePontual.Areas.Admin.Models
 
         [Required(ErrorMessage = "Valor de Estoque Obrigatório")]
 
-        [Display(Name = "Estoque")]
+        [Display(Name = "Estoque Atual")]
         public int Quantidade { get; set; }
 
         [Display(Name = "Preço")]

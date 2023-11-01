@@ -1,6 +1,7 @@
 @model Produto
 <div class="container">
     <div class="col-sm-4 col-md-4 col-lg-4">
+        <h1>@ViewBag.Titulo</h1>
         <form asp-area="Admin" asp-action="CriarProduto">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <label asp-for="Nome" class="form-label"></label>

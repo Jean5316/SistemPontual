@@ -18,5 +18,8 @@ namespace TestePontual.Repository.Interfaces
 
         Produto Detalhes(int Id);
 
+        
+
+
     }
 }

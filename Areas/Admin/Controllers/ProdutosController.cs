@@ -68,5 +68,54 @@ namespace TestePontual.Areas.Admin.Controllers
             return NotFound();
 
         }
+
+        public IActionResult EditarProduto(int id)
+        {
+            ViewBag.Titulo = "Editar Produto";
+            var produtoDb = _context.GetProdutoId(id);
+            if (produtoDb != null)
+            {
+                return View(produtoDb);
+            }
+            ModelState.AddModelError("", "Produto não encontrado!");
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult EditarProduto(Produto produto)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var produtoDb = _context.GetProdutoId(produto.Id);
+                if (produtoDb != null)
+                {
+                    produtoDb.Nome = produto.Nome;
+                    produtoDb.Preco = produto.Preco;
+                    produtoDb.Quantidade = produto.Quantidade;
+                    _context.EditarProduto(produtoDb);
+                    return RedirectToAction("Index", "Produtos");
+                }
+
+                ModelState.AddModelError("", "Não Possivel Editar Produto!");
+                return View();
+            }
+
+            return View();
+        }
+
+        public IActionResult Detalhes(int id)
+        {
+             ViewBag.Titulo = "Detalhes Produto";
+            var produtoDb = _context.GetProdutoId(id);
+            if (produtoDb != null)
+            {
+                return View(produtoDb);
+            }
+            ModelState.AddModelError("", "Produto não encontrado!");
+
+            return View();
+        }
     }
 }

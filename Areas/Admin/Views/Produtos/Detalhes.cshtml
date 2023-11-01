@@ -1,0 +1,21 @@
+@model Produto
+<div class="container">
+    <div class="col-sm-10 col-md-10 col-lg-10">
+        <h1>@ViewBag.Titulo</h1>
+        <label asp-for="Nome" class="form-label mb-2"></label>
+        <input asp-for="Nome" class="form-control">
+        @Html.ValidationMessageFor(Model => Model.Nome, "", new { @class = "text-danger" })<br>
+
+        <label asp-for="Quantidade" class="form-label mb-2"></label>
+        <input asp-for="Quantidade" class="form-control">
+        @Html.ValidationMessageFor(Model => Model.Quantidade, "", new { @class = "text-danger" })<br>
+
+        <label asp-for="Preco" class="form-label mt-2"></label>
+        <input asp-for="Preco" class="form-control">
+        @Html.ValidationMessageFor(Model => Model.Preco, "", new { @class = "text-danger" })<br>
+
+        <a asp-action="CriarProduto"><button class="btn btn-primary mt-2" type="submit">Criar Novo Produto</button></a>
+        <a asp-action="EditarProduto" asp-route-id="@Model.Id"><button class="btn btn-primary mt-2" type="submit">Editar Produto</button></a>
+        <a asp-action="Index"><button class="btn btn-primary mt-2">Voltar</button></a>
+    </div>
+</div>

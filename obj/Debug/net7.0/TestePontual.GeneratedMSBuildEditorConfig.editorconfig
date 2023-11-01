@@ -9,125 +9,133 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TestePontual
 build_property.RootNamespace = TestePontual
-build_property.ProjectDir = /home/jean/.vscode/Project/C#/SistemPontual/
+build_property.ProjectDir = C:\Users\jean1\.vscode\Projects\C#\TestePontual\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /home/jean/.vscode/Project/C#/SistemPontual
+build_property.MSBuildProjectDirectory = C:\Users\jean1\.vscode\Projects\C#\TestePontual
 build_property._RazorSourceGeneratorDebug = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Areas/Admin/Views/Admin/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWRtaW4vSW5kZXguY3NodG1s
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Areas/Admin/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Areas/Admin/Views/Produtos/CriarProduto.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUHJvZHV0b3MvQ3JpYXJQcm9kdXRvLmNzaHRtbA==
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Areas/Admin/Views/Produtos/CriarProduto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHV0b3NcQ3JpYXJQcm9kdXRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Areas/Admin/Views/Produtos/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUHJvZHV0b3MvSW5kZXguY3NodG1s
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Areas/Admin/Views/Produtos/Detalhes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHV0b3NcRGV0YWxoZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Areas/Admin/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Areas/Admin/Views/Produtos/EditarProduto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHV0b3NcRWRpdGFyUHJvZHV0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Areas/Admin/Views/Shared/_Links.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2hhcmVkL19MaW5rcy5jc2h0bWw=
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Areas/Admin/Views/Produtos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHV0b3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Areas/Admin/Views/Usuarios/EditarUsuario.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvVXN1YXJpb3MvRWRpdGFyVXN1YXJpby5jc2h0bWw=
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Areas/Admin/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Areas/Admin/Views/Usuarios/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvVXN1YXJpb3MvSW5kZXguY3NodG1s
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Areas/Admin/Views/Shared/_Links.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MaW5rcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Areas/Admin/Views/Usuarios/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvVXN1YXJpb3MvUmVnaXN0ZXIuY3NodG1s
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Areas/Admin/Views/Usuarios/EditarUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXN1YXJpb3NcRWRpdGFyVXN1YXJpby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Areas/Admin/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Areas/Admin/Views/Usuarios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Areas/Admin/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Areas/Admin/Views/Usuarios/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXN1YXJpb3NcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Account/AccessDenied.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9BY2Nlc3NEZW5pZWQuY3NodG1s
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Clientes/Criar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2xpZW50ZXMvQ3JpYXIuY3NodG1s
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Clientes/Detalhes.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2xpZW50ZXMvRGV0YWxoZXMuY3NodG1s
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Clientes/Editar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2xpZW50ZXMvRWRpdGFyLmNzaHRtbA==
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Clientes/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQ3JpYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Clientes/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2xpZW50ZXMvSW5kZXguY3NodG1s
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Clientes/Detalhes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGV0YWxoZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Clientes/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Clientes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Shared/Backup/_Layout_BKP.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0JhY2t1cC9fTGF5b3V0X0JLUC5jc2h0bWw=
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Shared/_Add_Link_Nav.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19BZGRfTGlua19OYXYuY3NodG1s
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Shared/Backup/_Layout_BKP.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEJhY2t1cFxfTGF5b3V0X0JLUC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Shared/_ClientePadrao.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19DbGllbnRlUGFkcmFvLmNzaHRtbA==
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Shared/_ClienteResumo.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19DbGllbnRlUmVzdW1vLmNzaHRtbA==
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Shared/_Add_Link_Nav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZGRfTGlua19OYXYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Shared/_LoginPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Mb2dpblBhcnRpYWwuY3NodG1s
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Shared/_ClientePadrao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DbGllbnRlUGFkcmFvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Shared/_SearchCliente.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19TZWFyY2hDbGllbnRlLmNzaHRtbA==
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Shared/_ClienteResumo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DbGllbnRlUmVzdW1vLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Shared/_SearchCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TZWFyY2hDbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jean/.vscode/Project/C\#/SistemPontual/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-37jcgotb27
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jean1/.vscode/Projects/C\#/TestePontual/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-taxq1emyy8

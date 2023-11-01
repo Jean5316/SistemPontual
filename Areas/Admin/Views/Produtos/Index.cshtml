@@ -2,10 +2,10 @@
 <div class="container">
     <h1>@ViewBag.Titulo</h1>
 
-    <a asp-action="CriarProduto"><button class="btn btn-primary">Criar Produto</button></a>
+    <a asp-action="CriarProduto"><button class="btn btn-primary btn-lg">Criar Produto</button></a>
 
     <div class="row">
-        <div class="col-sm-7 col-md-7 col-lg-7">
+        <div class="col-sm-10 col-md-10 col-lg-10">
             <table class="table table-dark table-striped text-center">
                 <thead>
                     <tr>
@@ -17,7 +17,7 @@
                         <th><input type="hidden" name=""></th>
                         <th><input type="hidden" name=""></th>
                         <th><input type="hidden" name=""></th>
-                        <th><input type="hidden" name=""></th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -25,28 +25,24 @@
                     {
                         <tr>
                             <td>@Html.DisplayFor(model => i.Id)</td>
-                        <td>@Html.DisplayFor(model => i.Nome)</td>
-                        <td>@Html.DisplayFor(model => i.Quantidade)</td>
-                        <td>@Html.DisplayFor(model => i.Preco)</td>
-                        <td ><a asp-action="Editar" asp-route-id="@i.Id"><button
-                                    class="btn btn-primary btn-lg">Editar</button></a></td>
-                        <td ><a asp-action="Detalhes" asp-route-id="@i.Id"><button
-                                    class="btn btn-primary btn-lg">Detalhes</button></a></td>
-                        <td > <a asp-action="ExcluirProduto" asp-route-id="@i.Id"><button
-                                    class="btn btn-primary btn-lg">Deletar</button></a></td>
-                        <td>
-                            <a asp-action="AddProduto"><svg width="100" height="100">
-                                <circle cx="50" cy="50" r="40" stroke="black" stroke-width="2" fill="transparent"/>
-                                <line x1="30" y1="50" x2="70" y2="50" stroke="black" stroke-width="2"/>
-                                <line x1="50" y1="30" x2="50" y2="70" stroke="black" stroke-width="2"/>
-                                    
-                            </svg></a>
-                        </td>
+                            <td>@Html.DisplayFor(model => i.Nome)</td>
+                            <td>@Html.DisplayFor(model => i.Quantidade)</td>
+                            <td>@Html.DisplayFor(model => i.Preco)</td>
+                            <td><a asp-action="EditarProduto" asp-route-id="@i.Id"><button
+                                        class="btn btn-primary btn-md">Editar</button></a></td>
+                            <td><a asp-action="Detalhes" asp-route-id="@i.Id"><button
+                                        class="btn btn-primary btn-md">Detalhes</button></a></td>
+                            <td> <a asp-action="ExcluirProduto" asp-route-id="@i.Id"><button
+                                        class="btn btn-primary btn-md">Deletar</button></a></td>
+                            
                         </tr>
-                        
+
                     }
                 </tbody>
             </table>
+            <div class="">
+                <a asp-action="Index" asp-controller="Admin"><button class="btn btn-primary btn-lg mt-2">Voltar</button></a>
+            </div>
         </div>
     </div>
 </div>
