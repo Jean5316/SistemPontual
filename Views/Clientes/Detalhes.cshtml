@@ -4,18 +4,15 @@
 }
 
 <div class="container">
-
-  <div class="mb-3">
-    <label asp-for="Nome" class="form-label"></label>
-    <input asp-for="Nome" class="form-control">
-
-    <label class="form-label">@Html.DisplayNameFor(Model => Model.Contato)</label>
-    <input class="form-control" value="@Html.DisplayFor(Model => Model.Contato)">
-
-    <label asp-for="Email" class="form-label"></label>
-    <input asp-for="Email" class="form-control">
+  <div class="row justify-content-center align-items-center" style="height: 100vh;">
+    <div class="col-sm-10 col-md-10 col-lg-10">
+      <partial name="_ClientePadrao" />
+      <br>
+      <a asp-action="Criar"><button type="button" class="btn btn-primary">Cadastrar Cliente</button></a>
+      <a asp-action="Index"><button type="button" class="btn btn-primary">Voltar</button></a>
+    </div>
   </div>
 
-  <a asp-action="Criar"><button type="button" class="btn btn-primary">Cadastrar Cliente</button></a>
-  <a asp-action="Index"><button type="button" class="btn btn-primary">Voltar</button></a>
+
+
 </div>

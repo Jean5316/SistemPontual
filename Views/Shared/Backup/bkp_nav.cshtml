@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img
+                        src="https://pontualinformatica.net.br/assets/images/logo-pontual-png-231x121.png" class="img-thumbnail"
+                        alt="Pontual"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home"
+                                asp-action="Privacy">Privacy</a>
+                        </li>
+
+                        @await Html.PartialAsync("_Add_Link_Nav")
+
+                    </ul>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a class="nav-link text-white" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin Area</a>
+                    }
+                    @await Html.PartialAsync("_LoginPartial")
+                </div>
+            </div>
+        </nav>

@@ -25,7 +25,7 @@ namespace TestePontual.Controllers
             _context = context;
         }
 
-        [AllowAnonymous]//Permite acesso somente ao metodo especifico, sempre quem tem prioridade é o allowanonymous(tomar cuidado ao ultilizar)
+        //[AllowAnonymous]//Permite acesso somente ao metodo especifico, sempre quem tem prioridade é o allowanonymous(tomar cuidado ao ultilizar)
                         //Pagina index 
 
         public IActionResult Index()

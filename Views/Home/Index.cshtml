@@ -3,8 +3,12 @@
     ViewBag.Data = @DateTime.Now;
 }
 
-<div class="text-center">
-    <h1 class="display-4">@ViewBag.Data</h1>
-    <h2>Bem - Vindo a Home Page</h2>
-    
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+        <div class="col-sm-10 col-md-10 col-lg-10" style="height: 100vh;">
+            <h1 class="display-4">@ViewBag.Data</h1>
+            <h2>Bem - Vindo a Home Page</h2>
+            @* <partial name="_Carrosel"/> *@
+        </div>
+    </div>
 </div>

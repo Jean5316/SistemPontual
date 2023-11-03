@@ -17,43 +17,62 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img
-                        src="https://pontualinformatica.net.br/assets/images/logo-pontual-png-231x121.png" class="img-thumbnail"
-                        alt="Pontual"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home"
-                                asp-action="Privacy">Privacy</a>
-                        </li>
-
-                        @await Html.PartialAsync("_Add_Link_Nav")
-
-                    </ul>
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <a class="nav-link text-white" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin Area</a>
-                    }
-                    @await Html.PartialAsync("_LoginPartial")
-                </div>
+     <div class="container">
+        <div class="navigation">
+            <div>
+                <img class="imgLogo" src="https://pontualinformatica.net.br/assets/images/logo-pontual-png-231x121.png">
+                <ul>
+                    <li class="list active">
+                        <a href="/">
+                            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                            <span class="title">Home</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="/Home/Privacy">
+                            <span class="icon"><ion-icon name="cube-outline"></ion-icon></span>
+                            <span class="title">Privacy</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="/Clientes">
+                            <span class="icon"><ion-icon name="cart-outline"></ion-icon></span>
+                            <span class="title">Clientes</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="/Admin">
+                            <span class="icon"><ion-icon name="document-text-outline"></ion-icon></span>
+                            <span class="title">Configurações</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="#">
+                            <span class="icon"><ion-icon name="wallet-outline"></ion-icon></span>
+                            <span class="title">Financeiro</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="#">
+                            <span class="icon"><ion-icon name="cog-outline"></ion-icon></ion-icon></span>
+                            <span class="title">Configuração</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="#" onclick="sair()">
+                            <span class="icon"><ion-icon name="arrow-undo-outline"></ion-icon></span>
+                            <span class="title">Sair</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="content">
             @RenderBody()
         </main>
     </div>
+     </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">
