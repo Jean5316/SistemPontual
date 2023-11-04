@@ -17,69 +17,65 @@
 </head>
 
 <body>
-     <div class="container">
-        <div class="navigation">
-            <div>
-                <img class="imgLogo" src="https://pontualinformatica.net.br/assets/images/logo-pontual-png-231x121.png">
-                <ul>
-                    <li class="list active">
-                        <a href="/">
-                            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                            <span class="title">Home</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a href="/Home/Privacy">
-                            <span class="icon"><ion-icon name="cube-outline"></ion-icon></span>
-                            <span class="title">Privacy</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a href="/Clientes">
-                            <span class="icon"><ion-icon name="cart-outline"></ion-icon></span>
-                            <span class="title">Clientes</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a href="/Admin">
-                            <span class="icon"><ion-icon name="document-text-outline"></ion-icon></span>
-                            <span class="title">Configurações</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a href="#">
-                            <span class="icon"><ion-icon name="wallet-outline"></ion-icon></span>
-                            <span class="title">Financeiro</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a href="#">
-                            <span class="icon"><ion-icon name="cog-outline"></ion-icon></ion-icon></span>
-                            <span class="title">Configuração</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a href="#" onclick="sair()">
-                            <span class="icon"><ion-icon name="arrow-undo-outline"></ion-icon></span>
-                            <span class="title">Sair</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    <div class="container">
-        <main role="main" class="content">
-            @RenderBody()
-        </main>
-    </div>
-     </div>
+    @* NavBar *@
+    <div class="navigation">
+        <div>
+            @* Topo *@
+            <div class="top">
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 Jean Carlo - Programador Junior - <a asp-area="" asp-controller="Home"
-                asp-action="Privacy">Privacy</a>
+                <div class="nameUser"><strong><i>@User.Identity.Name&nbsp;</i></strong></div>
+            </div>
+            <ul>
+                <li class="list active">
+                    <a href="/">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="/Home/Privacy">
+                        <span class="icon"><ion-icon name="cube-outline"></ion-icon></span>
+                        <span class="title">Privacy</span>
+                    </a>
+                </li>
+                
+                <partial name="_Add_Link_Nav" />
+                
+
+                <li class="list">
+                    <a href="#">
+                        <span class="icon"><ion-icon name="wallet-outline"></ion-icon></span>
+                        <span class="title">Financeiro Não Implementado</span>
+                    </a>
+                </li>
+                <partial name="_LoginPartial" />
+
+            </ul>
         </div>
-    </footer>
+    </div>
+    <div class="container">
+        @* NavBar *@
+
+        @* Render Das Page *@
+        <div class="container">
+            <main role="main" class="content">
+                @RenderBody()
+            </main>
+        </div>
+        @* Rodapé *@
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2023 Jean Carlo - Programador Junior - <a asp-area="" asp-controller="Home"
+                    asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
+    </div>
+
+
+
+
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

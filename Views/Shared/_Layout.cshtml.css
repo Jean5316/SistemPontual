@@ -78,6 +78,7 @@ body {
   left: 80%;
   width: 100px;
   margin-top: 10px;
+  color: #fff;
 }
 
 .nameUser {
@@ -179,6 +180,7 @@ body {
   height: 60px;
   text-align: center;
   line-height: 70px;
+
 }
 
 .navigation ul li a .icon ion-icon {
@@ -194,6 +196,7 @@ body {
   height: 60px;
   line-height: 60px;
   white-space: nowrap;
+  
 }
 
 .navigation ul li.active {
