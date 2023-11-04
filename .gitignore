@@ -1,0 +1,8 @@
+#Ignorar arquivos log
+.log
+
+#ignorar arquivos de compl.
+/build/
+
+#ignorar arquivos .dll
+.dll
