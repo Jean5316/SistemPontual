@@ -1,14 +1,23 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
     ViewBag.Data = @DateTime.Now;
+
 }
+@inject SignInManager<IdentityUser> SignInManager
 
 <div class="container">
     <div class="row justify-content-center align-items-center" style="height: 100vh;">
-        <div class="col-sm-10 col-md-10 col-lg-10" style="height: 100vh;">
+        <div class="col-sm-7 col-md-7 col-lg-7" style="height: 100vh;">
             <h1 class="display-4">@ViewBag.Data</h1>
             <h2>Bem - Vindo a Home Page</h2>
-            @* <partial name="_Carrosel"/> *@
+            @if (!SignInManager.IsSignedIn(User))
+            {
+                <a href="/Account/Login"><button class="btn btn-primary">Login</button></a>
+            }
+            <br>
+            <br>
+            <partial name="_Carrosel"/>
+            
         </div>
     </div>
 </div>

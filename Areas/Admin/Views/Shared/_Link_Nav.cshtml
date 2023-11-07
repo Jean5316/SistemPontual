@@ -8,16 +8,16 @@
         aria-expanded="false">Funcionalidades</a>
     <ul class="dropdown-menu">
         <li>
-            <a class="dropdown-item" asp-action="Index" asp-controller="Clientes">Clientes</a>
+            <a class="dropdown-item" asp-action="Index" asp-controller="Usuarios" asp-area="Admin">Usuarios</a>
+        </li>
+        <li>
+            <a class="dropdown-item" asp-action="Index" asp-controller="Produtos" asp-area="Admin">Produtos</a>
         </li>
 
         <li>
             <hr class="dropdown-divider">
         </li>
-        <li><a class="dropdown-item" asp-action="Index" asp-controller="Admin">Configurações</a></li>
+        <li><a class="dropdown-item" asp-action="Index" asp-controller="Home" asp-area="">Sair Area Admin</a></li>
     </ul>
-
-
-
 
 }

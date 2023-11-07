@@ -18,58 +18,40 @@
 
 <body>
     @* NavBar *@
-    <div class="navigation">
-        <div>
-            @* Topo *@
-            <div class="top">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" asp-action="Index" asp-controller="Home" asp-area="">Home</a>
+        </li>
+        <li class="nav-item dropdown">
 
-                <div class="nameUser"><strong><i>@User.Identity.Name&nbsp;</i></strong></div>
-            </div>
-            <ul>
-                <li class="list active">
-                    <a href="/">
-                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                        <span class="title">Home</span>
-                    </a>
-                </li>
-                <li class="list">
-                    <a href="/Home/Privacy">
-                        <span class="icon"><ion-icon name="cube-outline"></ion-icon></span>
-                        <span class="title">Privacy</span>
-                    </a>
-                </li>
-                
-                <partial name="_Add_Link_Nav" />
-                
+            <partial name="_Add_Link_Nav"/>
+        </li>
 
-                <li class="list">
-                    <a href="#">
-                        <span class="icon"><ion-icon name="wallet-outline"></ion-icon></span>
-                        <span class="title">Financeiro Não Implementado</span>
-                    </a>
-                </li>
-                <partial name="_LoginPartial" />
+        <li class="nav-item">
+            <a class="nav-link" href="#">Financeiro Não implementado</a>
+        </li>
+        <li class="nav-item">
+            @await Html.PartialAsync("_LoginPartial")
+        </li>
 
-            </ul>
-        </div>
-    </div>
-    <div class="container">
-        @* NavBar *@
+    </ul>
+   
 
-        @* Render Das Page *@
+
+    @* Render Das Page *@
         <div class="container">
-            <main role="main" class="content">
-                @RenderBody()
+            <main role="main" class="pb-3">
+            @RenderBody()
             </main>
         </div>
-        @* Rodapé *@
+    @* Rodapé *@
         <footer class="border-top footer text-muted">
             <div class="container">
                 &copy; 2023 Jean Carlo - Programador Junior - <a asp-area="" asp-controller="Home"
                     asp-action="Privacy">Privacy</a>
             </div>
         </footer>
-    </div>
+
 
 
 
