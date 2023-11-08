@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g4dce+eEia93ml5KeiwpH0LNjycJH/GX2XJZuRya4SWLO65GuAAnQZoYDPCo+XTyhZaZ2zI4VsPd3ctrangoyg==",
+  "dgSpecHash": "ZVcMgThJissEo03F/NenMbAQc3ysFXxX7zfjgepCkRUcAueoDP12Db1XMeywiBnynIWzZ82k72fqTuvT3YrN+w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jean1\\.vscode\\Projects\\C#\\TestePontual\\TestePontual.csproj",
+  "projectFilePath": "c:\\Users\\jean1\\.vscode\\Projects\\C#\\TestePontual\\TestePontual.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jean1\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\jean1\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

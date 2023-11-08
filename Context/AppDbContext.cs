@@ -20,5 +20,7 @@ namespace TestePontual.Context
 
         public DbSet<Cliente> Clientes { get; set; } //define tabela no banco de dados nome Clientes
         public DbSet<Produto> Produtos { get; set; }
+
+        public DbSet<OrdemServico> OS { get; set; }
     }
 }

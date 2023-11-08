@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestePontual.Context;
 
@@ -10,9 +11,11 @@ using TestePontual.Context;
 namespace TestePontual.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class ClienteContextModelSnapshot : ModelSnapshot
+    [Migration("20231108045319_TableOrdemServico_2")]
+    partial class TableOrdemServico_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
@@ -288,11 +291,6 @@ namespace TestePontual.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Data")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasMaxLength(200)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("NomeCliente")

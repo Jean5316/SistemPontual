@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using TestePontual.Context;
+using TestePontual.Models;
 using TestePontual.Repositories;
 using TestePontual.Repository;
 using TestePontual.Repository.Interfaces;
@@ -23,6 +24,9 @@ builder.Services.AddTransient<IClienteRepository, ClienteRepositories>();
 
 //registrar dependencia do repository de produto
 builder.Services.AddTransient<IProdutoRepository, ProdutoRepository>();
+
+//registrar dependencua do repository de OrdemServiço
+builder.Services.AddTransient<IOrdemServico, OrdemServicoRepository>();
 
 //configurando session e httpContext
 //registrando dependencia httpcontext
