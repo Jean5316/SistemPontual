@@ -29,11 +29,11 @@
                             <td>@Html.DisplayFor(model => i.Tecnico)</td>
                             <td>@Html.DisplayFor(model => i.Data)</td>
                             <td>@Html.DisplayFor(model => i.Status)</td>
-                            <td><a asp-action="EditarProduto" asp-route-id="@i.Id"><button
+                            <td><a asp-action="EditarOS" asp-route-id="@i.Id"><button
                                         class="btn btn-primary btn-md">Editar</button></a></td>
-                            <td><a asp-action="Detalhes" asp-route-id="@i.Id"><button
+                            <td><a asp-action="DetalhesOS" asp-route-id="@i.Id"><button
                                         class="btn btn-primary btn-md">Detalhes</button></a></td>
-                            <td> <a asp-action="ExcluirProduto" asp-route-id="@i.Id"><button
+                            <td> <a asp-action="ExcluirOS" asp-route-id="@i.Id"><button
                                         class="btn btn-primary btn-md">Deletar</button></a></td>
                         </tr>
                     }

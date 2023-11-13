@@ -40,7 +40,7 @@ namespace TestePontual.Controllers
             if (ModelState.IsValid)
             {
                 var clienteId = _context.GetNameId(os.NomeCliente);
-                if ( clienteId != -1)
+                if (clienteId != -1)
                 {
                     os.ClienteId = clienteId;
                     _context.CriarOS(os);
@@ -52,6 +52,20 @@ namespace TestePontual.Controllers
             }
 
             return View();
+        }
+
+       
+        public IActionResult ExcluirOS(int Id)
+        {
+            var OSDB = _context.GetOSId(Id);
+            if (OSDB == null)
+            {
+                return NotFound();
+            }
+
+            _context.DeletarOS(OSDB);
+            return RedirectToAction("Index", "OS");
+
         }
     }
 }

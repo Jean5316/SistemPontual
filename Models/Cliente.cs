@@ -28,6 +28,7 @@ namespace TestePontual.Models
 
         [DataType(DataType.EmailAddress, ErrorMessage = "Digite um email valido")]
         public string Email { get; set; }
+        
         [DisplayFormat(DataFormatString = "79004-310")]
         public string Cep { get; set; }
 
