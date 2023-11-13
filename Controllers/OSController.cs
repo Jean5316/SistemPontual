@@ -29,6 +29,8 @@ namespace TestePontual.Controllers
         public IActionResult CriarOS()
         {
             ViewBag.Titulo = "Page de Criar OS's";
+            var opcoesEnum = Enum.GetValues(typeof(EnumStatus)).Cast<EnumStatus>();
+            ViewBag.Opcoes = opcoesEnum;
             return View();
         }
 

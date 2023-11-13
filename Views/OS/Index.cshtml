@@ -13,6 +13,7 @@
                         <th>@Html.DisplayNameFor(model => model.NomeCliente)</th>
                         <th>@Html.DisplayNameFor(model => model.Tecnico)</th>
                         <th>@Html.DisplayNameFor(model => model.Data)</th>
+                        <th>@Html.DisplayNameFor(model => model.Status)</th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -27,6 +28,7 @@
                             <td>@Html.DisplayFor(model => i.NomeCliente)</td>
                             <td>@Html.DisplayFor(model => i.Tecnico)</td>
                             <td>@Html.DisplayFor(model => i.Data)</td>
+                            <td>@Html.DisplayFor(model => i.Status)</td>
                             <td><a asp-action="EditarProduto" asp-route-id="@i.Id"><button
                                         class="btn btn-primary btn-md">Editar</button></a></td>
                             <td><a asp-action="Detalhes" asp-route-id="@i.Id"><button
